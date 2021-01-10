@@ -1,35 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Link;
-use Auth;
 
-class LinksController extends Controller
+class LinkController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($subdomain)
+    public function index($user_id)
     {
-
-        $url = Link::with('links')->whereSubdomain($subdomain)->firstOrFail();
-        dd($url);
-
-        return redirect()->away('https://www.google.com');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('links.create');
+        return Link::where('user_id', $user_id)->get();
     }
 
     /**
@@ -54,7 +40,7 @@ class LinksController extends Controller
         $link->user_id = Auth::user()->id;
         $link->save();
 
-        return redirect()->route('home');
+        return response()->json($link, 201);
     }
 
     /**
@@ -63,21 +49,9 @@ class LinksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Link $link)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $link = Link::whereId($id)->firstOrFail();
-        return view('links.edit')->with('link', $link);
+        return $link;
     }
 
     /**
@@ -89,12 +63,7 @@ class LinksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $link = Link::whereId($id)->firstOrFail();
-        $link->subdomain = $request->subdomain;
-        $link->mobile_no = $request->mobile_no;
-        $link->custom_msg = $request->custom_message;
-        $link->save();
-        return redirect()->route('home');
+        //
     }
 
     /**
@@ -106,15 +75,5 @@ class LinksController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    function remove_http($url) {
-       $disallowed = array('http://', 'https://');
-       foreach($disallowed as $d) {
-          if(strpos($url, $d) === 0) {
-             return str_replace($d, '', $url);
-          }
-       }
-       return $url;
     }
 }
