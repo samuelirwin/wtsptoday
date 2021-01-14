@@ -81,11 +81,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    WTSPToday (WhatsApp Today)
+                    Create your custom WhatsApp link and showcase it to your customers!
                 </div>
 
                 <div class="links">
-                    
+                    CREATE NOW, IT'S FREE FOR NOW! =) 
                 </div>
             </div>
         </div>
