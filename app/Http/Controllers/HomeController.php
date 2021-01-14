@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Link;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $links = Link::all();
+        $links = Link::whereUserId(Auth::user()->id)->get();
         return view('home', ['links' => $links]);
     }
 }
