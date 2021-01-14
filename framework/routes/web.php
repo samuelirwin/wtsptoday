@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::domain('{subdomain}.wtsp.today')->group(function ($router) {
+//     Route::get('/', 'SubdomainsController@index');
+// });
+
 Route::group(['domain' => '{subdomain}.'. config('app.short_url')], function()
 {
     Route::get('/', 'SubdomainsController@index');

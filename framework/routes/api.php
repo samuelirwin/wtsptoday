@@ -15,24 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::group(['prefix' => 'auth'], function () {
+Route::group(['prefix' => 'auth'], function () {
 
-//     Route::post('login', 'AuthController@login');
-//     Route::post('signup', 'AuthController@signup');
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
   
-//     Route::group(['middleware' => 'auth:api'], function() {
-//         Route::get('logout', 'AuthController@logout');
-//         Route::get('user', 'AuthController@user');
-//     });
-// });
-
-Route::post('register', 'Api\Auth\RegisterController@register');
-Route::post('login', 'Api\Auth\LoginController@login');
-Route::post('refresh', 'Api\Auth\LoginController@refresh');
-Route::post('social_auth', 'Api\Auth\SocialAuthController@socialAuth');
-
-Route::middleware('auth:api')->group(function () {
-    Route::post('logout', 'Api\Auth\LoginController@logout');
-
-    // Route::get('posts', 'Api\PostController@index');
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
 });
