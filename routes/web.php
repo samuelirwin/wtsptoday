@@ -13,17 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::domain('{subdomain}.wtsptoday.test')->group(function ($router) {
-//     Route::get('/', 'SubdomainsController@index');
-// });
-
 Route::group(['domain' => '{subdomain}.'. config('app.short_url')], function()
 {
     Route::get('/', 'SubdomainsController@index');
 });
 
 // Match my own domain
-Route::group(['domain' => 'wtsptoday.test'], function()
+Route::group(['domain' => config('app.short_url')], function()
 { 
     Route::get('/', 'PagesController@index');
 
