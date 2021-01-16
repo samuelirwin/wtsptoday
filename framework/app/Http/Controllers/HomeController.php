@@ -2,31 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
-use App\Link;
-use Auth;
-
-class HomeController extends Controller
+class HomeController
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        $links = Link::whereUserId(Auth::user()->id)->get();
-        return view('home', ['links' => $links]);
+        $products = Product::inRandomOrder()->take(3)->get();
+        $companies = User::whereHas('roles', function ($q) {
+            $q->whereTitle('User');
+        })->inRandomOrder()->take(8)->get();
+        return view('home', compact('products', 'companies'));
+    }
+
+    public function search(Request $request)
+    {
+        $products = Product::with('created_by')
+            ->where('name', 'LIKE', "%$request->search%")
+            ->orWhere('description', 'LIKE', "%$request->search%")
+            ->get();
+
+        return view('search', compact('products'));
     }
 }
