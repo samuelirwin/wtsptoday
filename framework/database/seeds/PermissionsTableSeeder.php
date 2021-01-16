@@ -90,7 +90,27 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => '21',
+                'title' => 'link_access',
+            ],
+            [
+                'id'    => '22',
+                'title' => 'link_delete',
+            ],
+            [
+                'id'    => '23',
+                'title' => 'link_show',
+            ],
+            [
+                'id'    => '24',
+                'title' => 'link_edit',
+            ],
+            [
+                'id'    => '25',
                 'title' => 'product_access',
+            ],
+            [
+                'id'    => '26',
+                'title' => 'link_create',
             ],
         ];
 
