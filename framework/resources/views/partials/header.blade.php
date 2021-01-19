@@ -29,29 +29,49 @@
                                         <a class="page-scroll" href="#pricing">Pricing</a>
                                     </li>
                                 </ul>
+                                <ul class="navbar-nav">
+                                    @auth
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.products.index') }}">My Dashboard</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        </li>
+                                        <form id="logout-form" class="d-none" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    @else
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                        </li>
+                                    @endauth
+                                </ul>
                             </div>
 
                             <div class="d-none d-sm-inline-block">
-                            <ul class="navbar-nav">
-                                @auth
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('admin.products.index') }}">My Dashboard</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                    </li>
-                                    <form id="logout-form" class="d-none" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                    </form>
-                                @else
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">Register</a>
-                                    </li>
-                                @endauth
-                            </ul>
+                                <ul class="navbar-nav">
+                                    @auth
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('admin.products.index') }}">My Dashboard</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                        </li>
+                                        <form id="logout-form" class="d-none" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    @else
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                        </li>
+                                    @endauth
+                                </ul>
                             </div>
                         </nav> <!-- navbar -->
                     </div>
