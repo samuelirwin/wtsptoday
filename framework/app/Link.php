@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class Link extends Model
 {
-    use SoftDeletes, Sluggable;
+    use Sluggable, SoftDeletes;
 
     protected $fillable = [
         'subdomain',
