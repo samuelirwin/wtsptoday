@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Link;
+use Gate;
 use Illuminate\Foundation\Http\FormRequest;
+use Symfony\Component\HttpFoundation\Response;
 
 class MassDestroyLinkRequest extends FormRequest
 {

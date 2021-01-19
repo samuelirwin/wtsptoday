@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.links.store") }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route("admin.links.store") }}" method="POST">
             @csrf
             <div class="form-group {{ $errors->has('subdomain') ? 'has-error' : '' }}">
                 <label for="subdomain">{{ trans('cruds.link.fields.subdomain') }}*</label>

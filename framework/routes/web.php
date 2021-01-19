@@ -1,14 +1,9 @@
 <?php
 
-Route::domain('{subdomain}.'.config('app.short_url'))->group(function () {
-    Route::get('/', 'SubdomainsController@index');
-    // Route::get('/', 'ProductsController@index')->name('products.index');
-    // Route::resource('products', 'ProductsController')->only(['index', 'show']);
-});
-
-
-Route::group(['domain' => config('app.short_url')], function()
+Route::domain(config('app.short_url'))->group(function () 
 {
+
+
     //Route::redirect('/', '/login');
     Route::get('/home', function () {
         if (session('status')) {
@@ -23,7 +18,8 @@ Route::group(['domain' => config('app.short_url')], function()
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('search', 'HomeController@search')->name('search');
 
-    Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+    Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function ()
+    {
         Route::get('/', 'HomeController@index')->name('home');
         // Permissions
         Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -47,3 +43,12 @@ Route::group(['domain' => config('app.short_url')], function()
         Route::resource('links', 'LinksController');
     });
 });
+
+Route::domain('{subdomain}.'.config('app.short_url'))->group(function () 
+{
+    Route::get('/', 'SubdomainsController@index');
+    // Route::get('/', 'ProductsController@index')->name('products.index');
+    // Route::resource('products', 'ProductsController')->only(['index', 'show']);
+});
+
+Route::get('/{slug}', 'SlugController@index');
