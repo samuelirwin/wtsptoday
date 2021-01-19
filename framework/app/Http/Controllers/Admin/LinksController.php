@@ -112,13 +112,16 @@ class LinksController extends Controller
      */
     public function update(Request $request, Link $link)
     {
-        // $link->subdomain = $request->subdomain;
+        $slugStr = SlugService::createSlug(Link::class, 'slug', $request->subdomain);
+        $slugStrUCWords = implode('-', array_map('ucfirst', explode('-', $slugStr)));
+        
+        $link->subdomain = $slugStrUCWords;
         $link->mobile_no = preg_replace('/^\s+/', '+', $request->mobile_no);
         $link->custom_msg = $request->custom_msg;
-        $link->slug = $link->subdomain;
-
+        $link->slug = $slugStrUCWords;
+        
         $strCustomUrl = "";
-        $strCustomUrl = "http://" . $request->subdomain . '.' . config('app.short_url');
+        $strCustomUrl = 'https://' . config('app.short_url') . '/' . $slugStrUCWords;
         $link->custom_url = $strCustomUrl;
         $link->wa_redirect_url = "https://api.whatsapp.com/send?phone=" . $request->mobile_no . "&text=" . urlencode($request->custom_msg);
 
