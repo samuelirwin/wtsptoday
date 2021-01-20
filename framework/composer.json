@@ -9,10 +9,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "bhuvidya/laravel-countries": "^8.0",
         "bugsnag/bugsnag-laravel": "^2.17",
         "cviebrock/eloquent-sluggable": "^6.0",
         "doctrine/dbal": "^2.9",
+        "ellisio/laravel-phone": "^8.0",
         "fideloper/proxy": "^4.0",
+        "ipunkt/laravel-analytics": "~2.0",
         "laravel/framework": "^6.2",
         "laravel/passport": "^7.4",
         "laravel/tinker": "^1.0",

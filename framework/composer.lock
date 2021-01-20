@@ -4,8 +4,65 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6326700741ef20b798c256be50329a74",
+    "content-hash": "9e05bc6f0980a0ab5ca0000ea62f7db2",
     "packages": [
+        {
+            "name": "bhuvidya/laravel-countries",
+            "version": "v8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bhuvidya/laravel-countries.git",
+                "reference": "2002f8e8954b558a22f623eda641d467a97c67d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bhuvidya/laravel-countries/zipball/2002f8e8954b558a22f623eda641d467a97c67d0",
+                "reference": "2002f8e8954b558a22f623eda641d467a97c67d0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.5|^6.0|^7.0|^8.0",
+                "illuminate/support": "^5.5|^6.0|^7.0|^8.0",
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bhuvidya\\Countries\\CountriesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bhuvidya\\Countries\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "bhu Boue vidya",
+                    "email": "bhuvidya@gmail.com",
+                    "role": "developer"
+                }
+            ],
+            "description": "Laravel Countries is a bundle for Laravel, providing Almost ISO 3166_2, 3166_3, currency, Capital and more for all countries. Bug kudos to Christoph Kempen, on whose work this package is heavily based (webpatser/laravel-countries).",
+            "homepage": "https://github.com/bhuvidya/laravel-countries",
+            "keywords": [
+                "countries",
+                "iso_3166_2",
+                "iso_3166_3",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/bhuvidya/laravel-countries/issues",
+                "source": "https://github.com/bhuvidya/laravel-countries"
+            },
+            "time": "2020-09-17T12:02:06+00:00"
+        },
         {
             "name": "bugsnag/bugsnag",
             "version": "v3.25.0",
@@ -1131,6 +1188,80 @@
             "time": "2020-12-29T14:50:06+00:00"
         },
         {
+            "name": "ellisio/laravel-phone",
+            "version": "v8.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ellisio/laravel-phone.git",
+                "reference": "35ac815f205340d703c42496ed1d020ba00e55a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ellisio/laravel-phone/zipball/35ac815f205340d703c42496ed1d020ba00e55a6",
+                "reference": "35ac815f205340d703c42496ed1d020ba00e55a6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": "^6.0|^7.0",
+                "illuminate/contracts": "^6.0|^7.0",
+                "illuminate/support": "^6.0|^7.0",
+                "illuminate/validation": "^6.0|^7.0",
+                "php": ">=7.2.5",
+                "twilio/sdk": "^6.0"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^5.0",
+                "mockery/mockery": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "EllisIO\\Phone\\PhoneServiceProvider"
+                    ],
+                    "aliases": {
+                        "Phone": "EllisIO\\Phone\\Facades\\Phone"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "EllisIO\\Phone\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Ellis",
+                    "email": "awellis89@gmail.com",
+                    "homepage": "https://twitter.com/ellisthedev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A phone validator for Laravel using the free Twilio phone lookup service.",
+            "homepage": "https://github.com/ellisio/laravel-phone",
+            "keywords": [
+                "format",
+                "formatter",
+                "laravel",
+                "phone",
+                "twilio",
+                "validation",
+                "validator"
+            ],
+            "support": {
+                "issues": "https://github.com/ellisio/laravel-phone/issues",
+                "source": "https://github.com/ellisio/laravel-phone/tree/v8.0.0"
+            },
+            "time": "2020-03-10T18:50:31+00:00"
+        },
+        {
             "name": "fideloper/proxy",
             "version": "4.4.1",
             "source": {
@@ -1518,6 +1649,73 @@
             "time": "2019-11-02T09:15:47+00:00"
         },
         {
+            "name": "ipunkt/laravel-analytics",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ipunkt/laravel-analytics.git",
+                "reference": "9e7ec193cb3e903754f3906a7c403feb5ea5ffa8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ipunkt/laravel-analytics/zipball/9e7ec193cb3e903754f3906a7c403feb5ea5ffa8",
+                "reference": "9e7ec193cb3e903754f3906a7c403feb5ea5ffa8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0 || ^6.0",
+                "illuminate/session": "~5.0 || ^6.0",
+                "illuminate/support": "~5.0 || ^6.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "laravel/framework": "~5.0 || ^6.0"
+            },
+            "suggest": {
+                "martijnc/php-csp": "For handling Content Security Policy matters"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ipunkt\\LaravelAnalytics\\AnalyticsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Analytics": "Ipunkt\\LaravelAnalytics\\AnalyticsFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Ipunkt\\LaravelAnalytics\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Kummer",
+                    "email": "r.kummer@ipunkt.biz"
+                }
+            ],
+            "description": "Analytics tracking for Laravel",
+            "keywords": [
+                "analytics",
+                "google analytics",
+                "javascript",
+                "laravel",
+                "php",
+                "statistics"
+            ],
+            "support": {
+                "issues": "https://github.com/ipunkt/laravel-analytics/issues",
+                "source": "https://github.com/ipunkt/laravel-analytics/archive/master.zip"
+            },
+            "time": "2019-09-05T06:46:03+00:00"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -1617,16 +1815,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.20.12",
+            "version": "v6.20.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "49f9db00a754517f07d365ee5b0806df82e37029"
+                "reference": "12ed06da14e3fe4257cb1ece91c2d3439cc2d34b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/49f9db00a754517f07d365ee5b0806df82e37029",
-                "reference": "49f9db00a754517f07d365ee5b0806df82e37029",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/12ed06da14e3fe4257cb1ece91c2d3439cc2d34b",
+                "reference": "12ed06da14e3fe4257cb1ece91c2d3439cc2d34b",
                 "shasum": ""
             },
             "require": {
@@ -1766,7 +1964,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-01-15T15:35:47+00:00"
+            "time": "2021-01-19T13:41:17+00:00"
         },
         {
             "name": "laravel/passport",
@@ -2304,16 +2502,16 @@
         },
         {
             "name": "league/mime-type-detection",
-            "version": "1.5.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/mime-type-detection.git",
-                "reference": "353f66d7555d8a90781f6f5e7091932f9a4250aa"
+                "reference": "3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/353f66d7555d8a90781f6f5e7091932f9a4250aa",
-                "reference": "353f66d7555d8a90781f6f5e7091932f9a4250aa",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3",
+                "reference": "3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3",
                 "shasum": ""
             },
             "require": {
@@ -2321,8 +2519,9 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.36",
-                "phpunit/phpunit": "^8.5.8"
+                "friendsofphp/php-cs-fixer": "^2.18",
+                "phpstan/phpstan": "^0.12.68",
+                "phpunit/phpunit": "^8.5.8 || ^9.3"
             },
             "type": "library",
             "autoload": {
@@ -2343,7 +2542,7 @@
             "description": "Mime-type detection for Flysystem",
             "support": {
                 "issues": "https://github.com/thephpleague/mime-type-detection/issues",
-                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.5.1"
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.7.0"
             },
             "funding": [
                 {
@@ -2355,7 +2554,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-18T11:50:25+00:00"
+            "time": "2021-01-18T20:58:21+00:00"
         },
         {
             "name": "league/oauth2-server",
@@ -6184,6 +6383,60 @@
             "time": "2020-07-13T06:12:54+00:00"
         },
         {
+            "name": "twilio/sdk",
+            "version": "6.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twilio/twilio-php.git",
+                "reference": "2f1bb71f25c5ea141d75969ef0cdb895a63fdbaa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/2f1bb71f25c5ea141d75969ef0cdb895a63fdbaa",
+                "reference": "2f1bb71f25c5ea141d75969ef0cdb895a63fdbaa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^6.3 || ^7.0",
+                "phpunit/phpunit": ">=4.5",
+                "theseer/phpdox": "^0.12.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "An HTTP client to execute the API requests"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twilio\\": "src/Twilio/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Twilio API Team",
+                    "email": "api@twilio.com"
+                }
+            ],
+            "description": "A PHP wrapper for Twilio's API",
+            "homepage": "http://github.com/twilio/twilio-php",
+            "keywords": [
+                "api",
+                "sms",
+                "twilio"
+            ],
+            "support": {
+                "issues": "https://github.com/twilio/twilio-php/issues",
+                "source": "https://github.com/twilio/twilio-php/tree/6.16.0"
+            },
+            "time": "2021-01-13T22:45:35+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v3.6.7",
             "source": {
@@ -7699,16 +7952,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.13",
+            "version": "8.5.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8e86be391a58104ef86037ba8a846524528d784e"
+                "reference": "c25f79895d27b6ecd5abfa63de1606b786a461a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e86be391a58104ef86037ba8a846524528d784e",
-                "reference": "8e86be391a58104ef86037ba8a846524528d784e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c25f79895d27b6ecd5abfa63de1606b786a461a3",
+                "reference": "c25f79895d27b6ecd5abfa63de1606b786a461a3",
                 "shasum": ""
             },
             "require": {
@@ -7780,7 +8033,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.13"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.14"
             },
             "funding": [
                 {
@@ -7792,7 +8045,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-01T04:53:52+00:00"
+            "time": "2021-01-17T07:37:30+00:00"
         },
         {
             "name": "scrivo/highlight.php",

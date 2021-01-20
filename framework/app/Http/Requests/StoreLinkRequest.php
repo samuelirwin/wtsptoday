@@ -30,15 +30,9 @@ class StoreLinkRequest extends FormRequest
     public function rules()
     {
         return [
-            'subdomain'     => [
-                'required',
-            ],
-            'mobile_no'    => [
-                'required',
-            ],
-            'custom_msg' => [
-
-            ]
+            'subdomain'    => 'required',
+            'mobile_no'    => 'required',
+            'custom_msg'
         ];
     }
 }

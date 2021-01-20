@@ -102,7 +102,7 @@ return [
             'subdomain'                => 'Custom Name',
             'subdomain_helper'         => 'Write a custom name. Eg: Five Star Properties',
             'mobile_no'                => 'Mobile No',
-            'mobile_no_helper'         => 'Add your country code without the plus (+) sign. Eg: 60123456789 or 18882229999',
+            'mobile_no_helper'         => 'Select your country code and enter you mobile no Eg: 60123456789 or 18882229999',
             'custom_msg'               => 'Custom Message',
             'custom_msg_helper'        => 'Write a pre-text message for your audience',
             'no_of_clicks'             => 'No Of Clicks',

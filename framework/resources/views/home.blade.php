@@ -162,7 +162,7 @@
                             <p class="text">WTSPToday is here for you, create now and start closing deals immediately with your customers.</p>
                         </div>
                         <div class="call-action-btn mt-50 rounded-buttons">
-                            <a href="" class="main-btn rounded-three">Get Started Now</a>
+                            <a href="{{ route('admin.links.create') }}" class="main-btn rounded-three">Get Started Now</a>
                         </div>
                     </div> 
                 </div>

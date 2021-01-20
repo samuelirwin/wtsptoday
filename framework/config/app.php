@@ -178,6 +178,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
+        EllisIO\Phone\PhoneServiceProvider::class,
+
+        Bhuvidya\Countries\CountriesServiceProvider::class,
+
     ],
 
     /*
@@ -229,6 +234,11 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
         'Bugsnag'      => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
+
+        'Analytics'    => Ipunkt\LaravelAnalytics\AnalyticsFacade::class,
+
+        'Phone'        => EllisIO\Phone\Facades\Phone::class
+
 
     ],
 
