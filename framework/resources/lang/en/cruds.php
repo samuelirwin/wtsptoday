@@ -120,5 +120,23 @@ return [
             'created_by'               => 'Created By',
             'created_by_helper'        => '',
         ],
+    ],
+    'mobile_number'        => [
+        'title'          => 'Mobile Numbers',
+        'title_singular' => 'Mobile Number',
+        'fields'         => [
+            'id'                       => 'ID',
+            'id_helper'                => '',
+            'mobile_no_without_plus'         => 'Mobile No',
+            'mobile_no_without_plus_helper'  => 'Select your country code and enter you mobile no Eg: 60123456789 or 18882229999',
+            'created_at'               => 'Created at',
+            'created_at_helper'        => '',
+            'updated_at'               => 'Updated at',
+            'updated_at_helper'        => '',
+            'deleted_at'               => 'Deleted at',
+            'deleted_at_helper'        => '',
+            'created_by'               => 'Created By',
+            'created_by_helper'        => '',
+        ],
     ]
 ];

@@ -29,7 +29,7 @@ class UpdateLinkRequest extends FormRequest
             'subdomain'    => [
                 'required',
             ],
-            'mobile_no'   => [
+            'mobile_no_without_plus'   => [
                 'required',
             ],
             'custom_msg' => [

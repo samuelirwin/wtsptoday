@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             //ProductsTableSeeder::class,
+            Bhuvidya\Countries\CountriesSeeder::class       
         ]);
     }
 }

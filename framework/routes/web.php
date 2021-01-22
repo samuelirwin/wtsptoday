@@ -41,6 +41,9 @@ Route::domain(config('app.short_url'))->group(function ()
         // Links
         Route::delete('links/destroy', 'LinksController@massDestroy')->name('links.massDestroy');
         Route::resource('links', 'LinksController');
+
+        // Mobile numbers
+        Route::resource('mobile_numbers', 'MobileNumberController');
     });
 });
 

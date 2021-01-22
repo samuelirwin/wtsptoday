@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form action="{{ route("admin.links.update", [$link->id]) }}" method="POST">
+        <form action="{{ route('admin.links.update', [$link->id]) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group {{ $errors->has('subdomain') ? 'has-error' : '' }}">
@@ -23,13 +23,18 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('mobile_no') ? 'has-error' : '' }}">
-                <label for="mobile_no">{{ trans('cruds.link.fields.mobile_no') }}</label>
-                <input type="number" id="mobile_no" name="mobile_no" class="form-control" value="{{ old('mobile_no', isset($link) ? $link->mobile_no : '') }}" step="0.01">
+                <label for="mobile_no_without_plus">{{ trans('cruds.link.fields.mobile_no') }}</label>                
+                <select data-live-search="true" class="form-control" name="mobile_no_without_plus" id="mobile_no_without_plus">
+                    @foreach($mobile_numbers as $mobile_number)
+                    <option value="{{ $mobile_number->mobile_no_without_plus }}">{{ $mobile_number->mobile_no_without_plus }}</option>
+                    @endforeach
+                </select>
                 @if($errors->has('mobile_no'))
                     <em class="invalid-feedback">
                         {{ $errors->first('mobile_no') }}
                     </em>
                 @endif
+
                 <p class="helper-block">
                     {{ trans('cruds.link.fields.mobile_no_helper') }}
                 </p>
@@ -57,5 +62,8 @@
 @endsection
 
 @section('scripts')
-
+<script>
+    // To style all selects
+    $('select').selectpicker();
+</script>
 @stop

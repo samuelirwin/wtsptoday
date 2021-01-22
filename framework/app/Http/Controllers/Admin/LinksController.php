@@ -40,9 +40,12 @@ class LinksController extends Controller
     {
         abort_if(Gate::denies('link_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $countries = DB::table('countries')->select('calling_code', 'name')->get();
+        $mobile_numbers = DB::table('mobile_numbers')
+            ->select('mobile_no_without_plus')
+            ->whereUserId(Auth::user()->id)
+            ->get();
 
-        return view('admin.links.create')->with('countries', $countries);
+        return view('admin.links.create')->with('mobile_numbers', $mobile_numbers);
     }
 
     /**
@@ -60,15 +63,15 @@ class LinksController extends Controller
 
         try {
 
-            if(!$link_rows < 7 ) {
-                return redirect()->route('admin.links.index')->with(['message' => 'Please upgrade to Pro']);
+            if( $link_rows > 6 ) {
+                return redirect()->route('admin.links.index')->with([
+                    'status' => 'danger',
+                    'message' => 'Please upgrade to Pro'
+                ]);
             } 
 
-            $link = new Link;
-            $link->subdomain = $slugStrUCWords;
-
             $calling_code = $request->calling_code;
-            $mobile_no = $request->mobile_no;
+            $mobile_no = $request->mobile_no_without_plus;
             $full_mobile_no = $calling_code . $mobile_no;
 
             if (! $phone = Phone::getPhone($full_mobile_no)) {
@@ -77,29 +80,29 @@ class LinksController extends Controller
                     'message' => 'The mobile number you entered is not valid. Please enter a valid mobile number.']);
             }
 
-            $validated_mobile_no = $phone->getCountryCallingCode() . $phone->getNationalNumber();
-
-            $link->mobile_no = preg_replace('/^\s+/', '+', $validated_mobile_no);
+            $link = new Link;
+            $link->subdomain = $slugStrUCWords;
+            $link->mobile_no_without_plus = $full_mobile_no;
             $link->custom_msg = $request->custom_msg;
             $link->no_of_clicks = 0;
             $link->slug = $slugStrUCWords;
-            
-            $strCustomUrl = "";
-            $strCustomUrl = 'https://' . config('app.short_url') . '/' . $slugStrUCWords;
-            $link->custom_url = $strCustomUrl;
-            $link->wa_redirect_url = "https://api.whatsapp.com/send?phone=" . $request->mobile_no . "&text=" . urlencode($request->custom_msg);
-
+            $link->custom_url = 'https://' . config('app.short_url') . '/' . $slugStrUCWords;
+            $link->wa_redirect_url = "https://api.whatsapp.com/send?phone=" . $link->mobile_no_without_plus . "&text=" . urlencode($request->custom_msg);
             $link->user_id = Auth::user()->id;
             $link->save();
+
+            return redirect()->route('admin.links.index')->with([
+                'status' => 'success',
+                'message' => 'Congratulations. You have created your custom WhatsApp link.']);
              
         } catch (\Illuminate\Database\QueryException $e) {
             $errorCode = $e->errorInfo[1];
             if($errorCode == '1062') {
-                return redirect()->route('admin.links.index')->with(['message' => 'You have an existing custom name. Please create another.']);
+                return redirect()->route('admin.links.index')->with([
+                    'status' => 'danger',
+                    'message' => 'You have an existing custom name. Please create another.']);
             }
         }
-
-        return redirect()->route('admin.links.index');
     }
 
     /**
@@ -122,8 +125,13 @@ class LinksController extends Controller
     public function edit(Link $link)
     {
         abort_if(Gate::denies('link_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
+        $mobile_numbers = DB::table('mobile_numbers')
+            ->select('mobile_no_without_plus')
+            ->whereUserId(Auth::user()->id)
+            ->get();
 
-        return view('admin.links.edit', compact('link'));
+        return view('admin.links.edit', compact('link', 'mobile_numbers'));
     }
 
     /**
@@ -139,19 +147,29 @@ class LinksController extends Controller
         $slugStrUCWords = implode('-', array_map('ucfirst', explode('-', $slugStr)));
         
         $link->subdomain = $slugStrUCWords;
-        $link->mobile_no = preg_replace('/^\s+/', '+', $request->mobile_no);
+
+        $calling_code = $request->calling_code;
+        $mobile_no = $request->mobile_no_without_plus;
+        $full_mobile_no = $calling_code . $mobile_no;
+
+        if (! $phone = Phone::getPhone($full_mobile_no)) {
+            return back()->with([
+                'status' => 'danger',
+                'message' => 'The mobile number you entered is not valid. Please enter a valid mobile number.']);
+        }
+
+        $link->mobile_no_without_plus = $full_mobile_no;
         $link->custom_msg = $request->custom_msg;
         $link->slug = $slugStrUCWords;
-        
-        $strCustomUrl = "";
-        $strCustomUrl = 'https://' . config('app.short_url') . '/' . $slugStrUCWords;
-        $link->custom_url = $strCustomUrl;
-        $link->wa_redirect_url = "https://api.whatsapp.com/send?phone=" . $request->mobile_no . "&text=" . urlencode($request->custom_msg);
-
+        $link->custom_url = 'https://' . config('app.short_url') . '/' . $slugStrUCWords;
+        $link->wa_redirect_url = "https://api.whatsapp.com/send?phone=" . $link->mobile_no_without_plus . "&text=" . urlencode($request->custom_msg);
         $link->user_id = Auth::user()->id;
         $link->save();
 
-        return redirect()->route('admin.links.index');
+        return redirect()->route('admin.links.index')->with([
+            'status' => 'success',
+            'message' => 'Link have been updated.'
+        ]);
     }
 
     /**

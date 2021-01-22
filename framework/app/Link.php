@@ -13,7 +13,7 @@ class Link extends Model
 
     protected $fillable = [
         'subdomain',
-        'mobile_no',
+        'mobile_no_without_plus',
         'custom_msg',
         'user_id',
         'slug',
@@ -27,6 +27,11 @@ class Link extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function mobile_number()
+    {
+        return $this->belongsTo(MobileNumber::class);
+    }
+
     /**
      * Return the sluggable configuration array for this model.
      *
@@ -36,8 +41,7 @@ class Link extends Model
     {
         return [
             'slug' => [
-                'source' => 'subdomain',
-                'separator' => '-'
+                'source' => 'subdomain'
             ]
         ];
     }

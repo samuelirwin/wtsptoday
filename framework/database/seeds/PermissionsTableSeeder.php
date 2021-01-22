@@ -90,27 +90,51 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => '21',
-                'title' => 'link_access',
-            ],
-            [
-                'id'    => '22',
-                'title' => 'link_delete',
-            ],
-            [
-                'id'    => '23',
-                'title' => 'link_show',
-            ],
-            [
-                'id'    => '24',
-                'title' => 'link_edit',
-            ],
-            [
-                'id'    => '25',
                 'title' => 'product_access',
             ],
             [
+                'id'    => '22',
+                'title' => 'link_access',
+            ],
+            [
+                'id'    => '23',
+                'title' => 'link_delete',
+            ],
+            [
+                'id'    => '24',
+                'title' => 'link_show',
+            ],
+            [
+                'id'    => '25',
+                'title' => 'link_edit',
+            ],
+            [
                 'id'    => '26',
+                'title' => 'product_access',
+            ],
+            [
+                'id'    => '27',
                 'title' => 'link_create',
+            ],
+            [
+                'id'    => '28',
+                'title' => 'mobile_number_create',
+            ],
+            [
+                'id'    => '29',
+                'title' => 'mobile_number_edit',
+            ],
+            [
+                'id'    => '30',
+                'title' => 'mobile_number_show',
+            ],
+            [
+                'id'    => '31',
+                'title' => 'mobile_number_delete',
+            ],
+            [
+                'id'    => '32',
+                'title' => 'mobile_number_access',
             ],
         ];
 

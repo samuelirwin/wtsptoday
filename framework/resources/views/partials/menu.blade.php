@@ -3,7 +3,7 @@
 
         <ul class="nav">
             <li class="nav-item">
-                <a href="{{ route("admin.home") }}" class="nav-link">
+                <a href="{{ route('admin.home') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw fa-tachometer-alt">
 
                     </i>
@@ -21,7 +21,7 @@
                     <ul class="nav-dropdown-items">
                         @can('permission_access')
                             <li class="nav-item">
-                                <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.permissions.index') }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-unlock-alt nav-icon">
 
                                     </i>
@@ -31,7 +31,7 @@
                         @endcan
                         @can('role_access')
                             <li class="nav-item">
-                                <a href="{{ route("admin.roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.roles.index') }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-briefcase nav-icon">
 
                                     </i>
@@ -41,7 +41,7 @@
                         @endcan
                         @can('user_access')
                             <li class="nav-item">
-                                <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
                                     <i class="fa-fw fas fa-user nav-icon">
 
                                     </i>
@@ -52,9 +52,19 @@
                     </ul>
                 </li>
             @endcan
+            @can('mobile_number_access')
+                <li class="nav-item">
+                    <a href="{{ route('admin.mobile_numbers.index') }}" class="nav-link {{ request()->is('admin/mobile_numbers') || request()->is('admin/mobile_numbers/*') ? 'active' : '' }}">
+                        <i class="fa-fw fas fa-shopping-basket nav-icon">
+
+                        </i>
+                        {{ trans('cruds.mobile_number.title') }}
+                    </a>
+                </li>
+            @endcan
             @can('link_access')
                 <li class="nav-item">
-                    <a href="{{ route("admin.links.index") }}" class="nav-link {{ request()->is('admin/links') || request()->is('admin/links/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.links.index') }}" class="nav-link {{ request()->is('admin/links') || request()->is('admin/links/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-shopping-basket nav-icon">
 
                         </i>

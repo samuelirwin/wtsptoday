@@ -1,44 +1,32 @@
 @extends('layouts.admin')
 @section('content')
-@can('link_create')
+@can('mobile_number_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route("admin.links.create") }}">
-                {{ trans('global.add') }} {{ trans('cruds.link.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.mobile_numbers.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.mobile_number.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.link.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.mobile_number.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover datatable datatable-Product">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-User">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.link.fields.id') }}
+                            {{ trans('cruds.mobile_number.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.link.fields.subdomain') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.link.fields.mobile_no') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.link.fields.custom_msg') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.link.fields.no_of_clicks') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.link.fields.custom_url') }}
+                            {{ trans('cruds.mobile_number.fields.mobile_no_without_plus') }}
                         </th>
                         <th>
                             &nbsp;
@@ -46,39 +34,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($links as $key => $link)
-                        <tr data-entry-id="{{ $link->id }}">
+                    @foreach($mobile_numbers as $mobile_number)
+                        <tr data-entry-id="{{ $mobile_number->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $link->id ?? '' }}
+                                {{ $mobile_number->id ?? '' }}
                             </td>
                             <td>
-                                {{ $link->subdomain ?? '' }}
+                                {{ $mobile_number->mobile_no_without_plus ?? '' }}
                             </td>
                             <td>
-                                {{ $link->mobile_no_without_plus ?? '' }}
-                            </td>
-                            <td>
-                                {{ $link->custom_msg ?? '' }}
-                            </td>
-                            <td>
-                                {{ $link->no_of_clicks ?? '' }}
-                            </td>
-                            <td>
-                                <input type="text" value="{{ $link->custom_url ?? '' }}">
-                            </td>
-                            <td>
-                                
-                                @can('link_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.links.edit', $link->id) }}">
+                                @can('mobile_number_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.mobile_numbers.show', $mobile_number->id) }}">
+                                        {{ trans('global.view') }}
+                                    </a>
+                                @endcan
+
+                                @can('mobile_number_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.mobile_numbers.edit', $mobile_number->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('link_delete')
-                                    <form action="{{ route('admin.links.destroy', $link->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('mobile_number_delete')
+                                    <form action="{{ route('admin.mobile_numbers.destroy', $mobile_number->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">

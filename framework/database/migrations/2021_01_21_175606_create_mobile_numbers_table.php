@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinksTable extends Migration
+class CreateMobileNumbersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,21 @@ class CreateLinksTable extends Migration
      */
     public function up()
     {
-        Schema::create('links', function (Blueprint $table) {
+        Schema::create('mobile_numbers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('subdomain')->unique();
-            $table->string('mobile_no_without_plus');
-            $table->text('custom_msg')->nullable();
-            $table->integer('no_of_clicks')->default(0);            
-            $table->string('custom_url')->nullable();
-            $table->text('wa_redirect_url')->nullable();
-            $table->string('slug')->unique();
+            $table->string('type')->nullable();
+            $table->string('mobile_no_without_plus')->unique();
+            $table->string('mobile_no_with_plus')->unique();
+            $table->string('national_number')->unique();
+            $table->string('formatted_number')->unique();
+            $table->string('country');
+            $table->string('calling_code');
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->OnDelete('cascade');
-
-            $table->timestamps();
+            
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -38,6 +38,6 @@ class CreateLinksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('links');
+        Schema::dropIfExists('mobile_numbers');
     }
 }

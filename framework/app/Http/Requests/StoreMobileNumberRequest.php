@@ -3,12 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Gate;
 use Symfony\Component\HttpFoundation\Response;
 
-use Validator;
+use Gate;
 
-class StoreLinkRequest extends FormRequest
+class StoreMobileNumberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,7 +16,7 @@ class StoreLinkRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('link_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('mobile_number_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -30,14 +29,8 @@ class StoreLinkRequest extends FormRequest
     public function rules()
     {
         return [
-            'subdomain'    => [
+            'mobile_no_without_plus'     => [
                 'required',
-                'unique:links'
-            ],
-            'mobile_no_without_plus'    => 'required',
-            'slug' => [
-                'alpha_dash',
-                'unique:links'
             ]
         ];
     }
