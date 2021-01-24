@@ -23,6 +23,11 @@
                     <ul>
                         <li> New features are being developed for the pro package features! Hang in there!</li>
                     </ul>
+
+                    <div>
+                    <h6>For help or feedback</h6>
+                    <p>If you have questions or feedbacks, you can email to me directly at <a href="mailto:samuelirwin1992@gmail.com">samuelirwin1992@gmail.com</a></p>
+                    </div>
                 </div>
             </div>
         </div>
