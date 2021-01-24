@@ -80,12 +80,15 @@
                         <div class="pricing-header">
                             <h5 class="sub-title">FREE</h5>
                             <span class="price">RM 0</span>
-                            <p class="year">lifetime</p>
+                            <p class="year">per lifetime</p>
                         </div>
                         <div class="pricing-list">
                             <ul>
                                 <li><i class="lni-check-mark-circle"></i> Up to 7 links</li>
                                 <li><i class="lni-check-mark-circle"></i> Basic analytics</li>
+                                <li><i class="lni-cross-circle"></i> Product landing page</li>
+                                <li><i class="lni-cross-circle"></i> Sub-links</li>
+                                
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
@@ -103,14 +106,16 @@
                             <img src="assets/images/baloon.svg" alt="baloon">
                         </div>
                         <div class="pricing-header">
-                            <h5 class="sub-title">Basic <span class="badge badge-secondary">Coming soon</span></h5>
-                            <span class="price">RM ?</span>
-                            <p class="year">per ?</p>
+                            <h5 class="sub-title">Basic</h5>
+                            <span class="price">RM 10</span>
+                            <p class="year">per month</p>
                         </div>
                         <div class="pricing-list">
                             <ul>
                                 <li><i class="lni-check-mark-circle"></i> Up to 300 links</li>
                                 <li><i class="lni-check-mark-circle"></i> Basic analytics</li>
+                                <li><i class="lni-cross-circle"></i> Product landing page</li>
+                                <li><i class="lni-cross-circle"></i> Sub-links</li>
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
@@ -128,14 +133,16 @@
                             <img src="assets/images/baloon.svg" alt="baloon">
                         </div>
                         <div class="pricing-header">
-                            <h5 class="sub-title">Pro <span class="badge badge-secondary">Coming soon</span></h5>
-                            <span class="price">RM ?</span>
-                            <p class="year">per ?</p>
+                            <h5 class="sub-title">Pro</h5>
+                            <span class="price">RM 35</span>
+                            <p class="year">per month</p>
                         </div>
                         <div class="pricing-list">
                             <ul>
-                                <li><i class="lni-check-mark-circle"></i> Up to 3000 links</li>
+                                <li><i class="lni-check-mark-circle"></i> Unlimited links</li>
                                 <li><i class="lni-check-mark-circle"></i> Pro analytics</li>
+                                <li><i class="lni-check-mark-circle"></i> Product landing page<span class="badge badge-secondary">Coming soon</span></li>
+                                <li><i class="lni-check-mark-circle"></i> Sub-links<span class="badge badge-secondary">Coming soon</span></li>
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">

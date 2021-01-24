@@ -2,8 +2,6 @@
 
 Route::domain(config('app.short_url'))->group(function () 
 {
-
-
     //Route::redirect('/', '/login');
     Route::get('/home', function () {
         if (session('status')) {
@@ -11,6 +9,7 @@ Route::domain(config('app.short_url'))->group(function ()
         }
 
         return redirect()->route('admin.home');
+
     });
 
     Auth::routes();
@@ -44,6 +43,13 @@ Route::domain(config('app.short_url'))->group(function ()
 
         // Mobile numbers
         Route::resource('mobile_numbers', 'MobileNumberController');
+
+        // Plans
+        Route::get('/plans', 'PlanController@index')->name('plans.index');
+        Route::get('/plan/{plan}', 'PlanController@show')->name('plans.show');
+
+        // Subscriiptions
+        Route::post('/subscription', 'SubscriptionController@create')->name('subscription.create');
     });
 });
 

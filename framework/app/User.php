@@ -14,11 +14,11 @@ use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
 use Spatie\MediaLibrary\Models\Media;
 
+use Laravel\Cashier\Billable;
+
 class User extends Authenticatable
 {
-    use SoftDeletes, Notifiable, HasApiTokens;
-
-    public $table = 'users';
+    use SoftDeletes, Notifiable, HasApiTokens, Billable;
 
     protected $hidden = [
         'password',
