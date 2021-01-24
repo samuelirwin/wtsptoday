@@ -106,7 +106,7 @@
                             <img src="assets/images/baloon.svg" alt="baloon">
                         </div>
                         <div class="pricing-header">
-                            <h5 class="sub-title">Basic</h5>
+                            <h5 class="sub-title">Basic <span class="badge badge-secondary">Coming soon</span></h5>
                             <span class="price">RM 10</span>
                             <p class="year">per month</p>
                         </div>
@@ -133,7 +133,7 @@
                             <img src="assets/images/baloon.svg" alt="baloon">
                         </div>
                         <div class="pricing-header">
-                            <h5 class="sub-title">Pro</h5>
+                            <h5 class="sub-title">Pro <span class="badge badge-secondary">Coming soon</span></h5>
                             <span class="price">RM 35</span>
                             <p class="year">per month</p>
                         </div>
