@@ -85,10 +85,7 @@
                         <div class="pricing-list">
                             <ul>
                                 <li><i class="lni-check-mark-circle"></i> Up to 7 links</li>
-                                <li><i class="lni-check-mark-circle"></i> Basic analytics</li>
-                                <li><i class="lni-cross-circle"></i> Product landing page</li>
-                                <li><i class="lni-cross-circle"></i> Sub-links</li>
-                                
+                                <li><i class="lni-check-mark-circle"></i> Basic analytics</li>                                
                             </ul>
                         </div>
                         <div class="pricing-btn rounded-buttons text-center">
